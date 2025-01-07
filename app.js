@@ -29,6 +29,13 @@ app.use("/api/v1/payment",paymentRoutes)
 app.use("/api/v1",otherRoutes)
 
 
+app.get("/",(req,res)=>{
+    res.send(`
+        <h1> Server is running.
+        Click to visit frontend
+        <a href=${process.env.FRONTEND_URL}>CourseBundler</a>
+        </h1>`)
+})
 
 // Error middleware
 app.use(ErrorMiddleware)
