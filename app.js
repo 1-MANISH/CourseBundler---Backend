@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from "dotenv";
 import { ErrorMiddleware } from './middlewares/Error.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 // creating app
 const app  = express()
@@ -15,6 +16,11 @@ dotenv.config({
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser()) // for req.cookies
+app.use(cors({
+    origin:[process.env.FRONTEND_URL],
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true
+}))
 
 // import routes
 import courseRoutes from "./routes/courseRoutes.js"
