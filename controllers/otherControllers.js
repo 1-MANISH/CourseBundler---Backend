@@ -2,7 +2,7 @@ import { TryCatch } from "../middlewares/catchAsyncError.js";
 import { Request } from "../models/RequestModel.js";
 import {Contact} from "../models/ContactModel.js"
 import { sendEmail } from "../utils/sendEmail.js";
-import { ErrorHandler } from "../utils/ErrorHandler.js";
+import { ErrorHandler } from "../utils/errorHandler.js";
 import { Stats } from "../models/StatsModel.js";
 
 const contact = TryCatch(async (req,res,next)=>{

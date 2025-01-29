@@ -5,7 +5,7 @@ import { Course } from "../models/CourseModel.js";
 import { Request } from "../models/RequestModel.js";
 import { Stats } from "../models/StatsModel.js";
 import { User } from "../models/UserModel.js";
-import { ErrorHandler } from "../utils/ErrorHandler.js";
+import { ErrorHandler } from "../utils/errorHandler.js";
 import { getDataUri } from "../utils/getDataUri.js";
 import { deleteFilesFromCloudinary, uploadFilesToCloudinary } from "../utils/helper.js";
 import { sendEmail } from "../utils/sendEmail.js";

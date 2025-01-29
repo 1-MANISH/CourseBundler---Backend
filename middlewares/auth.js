@@ -1,5 +1,5 @@
 import { USER_TOKEN } from "../constants/constants.js"
-import { ErrorHandler } from "../utils/ErrorHandler.js"
+import { ErrorHandler } from "../utils/errorHandler.js"
 import jwt from "jsonwebtoken"
 import { TryCatch } from "./catchAsyncError.js"
 import { User } from "../models/UserModel.js"

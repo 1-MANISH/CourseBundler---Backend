@@ -2,7 +2,7 @@ import { TryCatch } from "../middlewares/catchAsyncError.js";
 import { Payment } from "../models/PaymentModal.js";
 import { User } from "../models/UserModel.js";
 import { instance } from "../server.js";
-import { ErrorHandler } from "../utils/ErrorHandler.js";
+import { ErrorHandler } from "../utils/errorHandler.js";
 import crypto from "crypto"
 
 const buySubscription = TryCatch(async (req,res,next) =>{
