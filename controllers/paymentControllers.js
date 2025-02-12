@@ -21,7 +21,6 @@ const buySubscription = TryCatch(async (req,res,next) =>{
     })
 
     user.subscription.id = subscription.id
-
     user.subscription.status = subscription.status
 
     await user.save()
@@ -48,7 +47,7 @@ const paymentVerification = TryCatch(async (req,res,next)=>{
         'UTF-8'
     ).digest('hex')
 
-    const isAuthentic =  razorpay_signature !== generated_signature
+    const isAuthentic =  razorpay_signature === generated_signature
     
     if(!isAuthentic)
         return res.redirect(`${process.env.FRONTEND_URL}/paymentfail`)
@@ -72,7 +71,6 @@ const getRazorPayKey = TryCatch(async (req,res,next)=>{
         success:true,
         key:process.env.RAZORPAY_API_KEY
     })
-
 })
 
 const cancelSubscription = TryCatch(async (req,res,next)=>{

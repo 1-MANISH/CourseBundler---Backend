@@ -35,7 +35,7 @@ const ErrorMiddleware = (err,req,res,next) => {
         err.message = `Invalid ${err.path}: ${err.value}.`;
     }
 
-
+    
     res.status(err.statusCode).json ({
         success:false,
         message:err.message
