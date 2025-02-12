@@ -25,7 +25,7 @@ const courseSchema = new mongoose.Schema({
                 type:String,
                 required:[true,"Please enter lecture description"],
                 minLength:[20,"Lecture Description must be at least 20 characters long"],
-                minLength:[50,"Lecture Description must be less than 500 characters"]
+                minLength:[500,"Lecture Description must be less than 500 characters"]
             },
             video:{
                 publicId:{

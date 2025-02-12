@@ -105,7 +105,7 @@ const addLecture = TryCatch(async (req,res,next)=>{
         return next(new ErrorHandler("Invalid Course Id Or Course Not Found.",400))
 
 
-    // getting files
+    // getting files-for video only one we want
     const videoFile = req.files.video && req.files.video[0] // as video taking  - name in frontend should be file - avatar/lecture video file
     const notesFiles = req.files.notes || [] // as notes taking - name as files in frontend 
 
