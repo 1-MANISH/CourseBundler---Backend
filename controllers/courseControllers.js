@@ -210,7 +210,7 @@ const deleteCourse = TryCatch(async (req,res,next)=>{
 // api/v1/course/courseId=course_Id&lectureId=lecture_Id - query
 const deleteLecture = TryCatch(async (req,res,next)=>{
 
-    const courseId = req.query.courseId
+    const courseId = req.params.courseId
     const lectureId = req.query.lectureId
 
     const course = await Course.findById(courseId)
@@ -221,6 +221,7 @@ const deleteLecture = TryCatch(async (req,res,next)=>{
     const lecture = course.lectures.find((item)=>{
         return item._id.toString() === lectureId.toString()
     })
+
 
     if(!lecture) 
         return next(new ErrorHandler("Invalid Lecture Id Or Lecture Not Found.",400))

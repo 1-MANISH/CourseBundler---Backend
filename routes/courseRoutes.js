@@ -23,7 +23,7 @@ router.route("/:courseId").post(isAuthenticated,authorizeRoles("admin"),multiple
 router.route("/:courseId").delete(isAuthenticated,authorizeRoles("admin"),deleteCourse)
 
 // Delete Lecture of a course --- ADMIN
-router.route("/lecture").delete(isAuthenticated,authorizeRoles("admin"),deleteLectureValidator(),validateHandler,deleteLecture)
+router.route("/lecture/:courseId").delete(isAuthenticated,authorizeRoles("admin"),deleteLectureValidator(),validateHandler,deleteLecture)
 
 // Get Course Details --- SUBSCRIBED USERS
 

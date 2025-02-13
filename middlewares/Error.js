@@ -5,7 +5,6 @@ const ErrorMiddleware = (err,req,res,next) => {
     err.statusCode = err.statusCode || 500
     err.message = err.message || "Internal Server Error"
 
-
     // mongodb and multer error also jwt
 
     // Handle invalid JWT error
