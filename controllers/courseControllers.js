@@ -40,10 +40,12 @@ const getCourseLectures = TryCatch(async (req,res,next)=>{
         return next(new ErrorHandler("Invalid Course Id Or Course Not Found.",400))
 
     // if someone accessing this course lectures so increase views
-
-    course.views += 1
-    await course.save()
-
+    
+    if(req.user.role === "user"){
+        course.views += 1
+        await course.save()
+    }
+    
     res.status(200).json({
         success:true,
         lectures:course.lectures
