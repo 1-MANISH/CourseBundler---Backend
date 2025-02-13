@@ -30,7 +30,7 @@ const register = TryCatch(async (req,res,next)=>{
     }
 
     //  we want uri 
-    const avatarUri = getDataUri(file)
+    const avatarUri = await getDataUri(file)
 
     // upload file on cloudinary
     const result = await uploadFilesToCloudinary([avatarUri])
