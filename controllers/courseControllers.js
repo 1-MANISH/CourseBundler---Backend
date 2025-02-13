@@ -2,7 +2,7 @@ import { TryCatch } from "../middlewares/catchAsyncError.js"
 import {Course} from "../models/CourseModel.js"
 import { User } from "../models/UserModel.js"
 import { ErrorHandler } from "../utils/errorHandler.js"
-import { getDataUri } from "../utils/getDataUri.js"
+import { getDataUri, getNotesUris } from "../utils/getDataUri.js"
 import { deleteFilesFromCloudinary, uploadFilesToCloudinary } from "../utils/helper.js"
 import { Stats } from "../models/StatsModel.js"
 
@@ -121,11 +121,8 @@ const addLecture = TryCatch(async (req,res,next)=>{
 
     // getting file content to upload modified it into base file
 
-    const videoUri = getDataUri(videoFile)
-    const notesUris = []
-    notesFiles?.forEach((note)=>{
-        notesUris.push(getDataUri(note))
-    })
+    const videoUri = await getDataUri(videoFile)
+    const notesUris = await getNotesUris(notesFiles)
 
     // upload file on cloudinary (video + notes)
 
